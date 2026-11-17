@@ -1,0 +1,344 @@
+{
+  "schema_version": 1,
+  "meta": {
+    "generated_at": "2026-12-01T12:00:00+00:00",
+    "year": 2026,
+    "years_present": [
+      2026
+    ],
+    "platforms": {
+      "chatgpt": 3,
+      "claude": 2,
+      "gemini": 1
+    },
+    "sources": [
+      "chatgpt-export.zip!User Online Activity/Conversations__a1b2c3-chatgpt-0001.zip!conversations.json",
+      "chats.json",
+      "claude-data-export.zip!conversations-000.zip!conversations.json",
+      "conversations.json"
+    ],
+    "redacted": false,
+    "tool": "chatwrapped",
+    "privacy": "parsed 100% locally; zero network calls",
+    "warnings": [
+      "claude-data-export.zip!memories.json: found 2 memor(y/ies) — counted as metadata only",
+      "claude-data-export.zip!projects-000.zip: found 2 project(s) — counted as metadata only"
+    ]
+  },
+  "totals": {
+    "conversations": 6,
+    "messages": 14,
+    "user_messages": 7,
+    "assistant_messages": 7,
+    "words": 144,
+    "chars": 874,
+    "est_tokens": 213,
+    "est_cost_usd": 0.0013,
+    "cost_note": "estimate only — user messages priced as input, assistant as output, chars/4 tokens"
+  },
+  "activity": {
+    "per_day": {
+      "2026-01-01": 4,
+      "2026-02-10": 2,
+      "2026-03-02": 2,
+      "2026-04-15": 2,
+      "2026-05-28": 2,
+      "2026-06-20": 2
+    },
+    "per_month": {
+      "January": 4,
+      "February": 2,
+      "March": 2,
+      "April": 2,
+      "May": 2,
+      "June": 2
+    },
+    "per_month_num": {
+      "1": 4,
+      "2": 2,
+      "3": 2,
+      "4": 2,
+      "5": 2,
+      "6": 2
+    },
+    "per_weekday": {
+      "Mon": 2,
+      "Tue": 2,
+      "Wed": 2,
+      "Thu": 6,
+      "Sat": 2
+    },
+    "busiest_day": {
+      "date": "2026-01-01",
+      "messages": 4
+    },
+    "active_days": 6,
+    "avg_messages_per_active_day": 2.33,
+    "latest_night": {
+      "time": "03:47",
+      "time_human": "3:47 AM",
+      "date": "2026-03-02",
+      "in_night_window": true,
+      "conversation_title": "Async bug",
+      "excerpt": "It sounds like the shared connection pool is exhausted; await the close or rais…",
+      "model": "gpt-4o-mini-2026-01-01"
+    }
+  },
+  "topics": {
+    "overall": [
+      {
+        "term": "plan",
+        "score": 0.352147
+      },
+      {
+        "term": "3-day",
+        "score": 0.352147
+      },
+      {
+        "term": "trip",
+        "score": 0.352147
+      },
+      {
+        "term": "kyoto",
+        "score": 0.352147
+      },
+      {
+        "term": "april",
+        "score": 0.352147
+      },
+      {
+        "term": "plan 3-day",
+        "score": 0.352147
+      },
+      {
+        "term": "3-day trip",
+        "score": 0.352147
+      },
+      {
+        "term": "trip kyoto",
+        "score": 0.352147
+      },
+      {
+        "term": "kyoto april",
+        "score": 0.352147
+      },
+      {
+        "term": "give",
+        "score": 0.265144
+      },
+      {
+        "term": "quick",
+        "score": 0.265144
+      },
+      {
+        "term": "pasta",
+        "score": 0.265144
+      },
+      {
+        "term": "recipe",
+        "score": 0.265144
+      },
+      {
+        "term": "tonight",
+        "score": 0.265144
+      },
+      {
+        "term": "give quick",
+        "score": 0.265144
+      },
+      {
+        "term": "quick pasta",
+        "score": 0.265144
+      },
+      {
+        "term": "pasta recipe",
+        "score": 0.265144
+      },
+      {
+        "term": "recipe tonight",
+        "score": 0.265144
+      },
+      {
+        "term": "async",
+        "score": 0.265144
+      },
+      {
+        "term": "function",
+        "score": 0.265144
+      }
+    ],
+    "by_month": [
+      {
+        "month": 1,
+        "month_name": "January",
+        "topics": [
+          {
+            "term": "plan",
+            "score": 0.177778
+          },
+          {
+            "term": "3-day",
+            "score": 0.177778
+          },
+          {
+            "term": "trip",
+            "score": 0.177778
+          }
+        ]
+      },
+      {
+        "month": 2,
+        "month_name": "February",
+        "topics": [
+          {
+            "term": "give",
+            "score": 0.111111
+          },
+          {
+            "term": "quick",
+            "score": 0.111111
+          },
+          {
+            "term": "pasta",
+            "score": 0.111111
+          }
+        ]
+      },
+      {
+        "month": 3,
+        "month_name": "March",
+        "topics": [
+          {
+            "term": "async",
+            "score": 0.111111
+          },
+          {
+            "term": "function",
+            "score": 0.111111
+          },
+          {
+            "term": "hang",
+            "score": 0.111111
+          }
+        ]
+      },
+      {
+        "month": 4,
+        "month_name": "April",
+        "topics": [
+          {
+            "term": "regex",
+            "score": 0.090909
+          },
+          {
+            "term": "parse",
+            "score": 0.090909
+          },
+          {
+            "term": "email",
+            "score": 0.090909
+          }
+        ]
+      },
+      {
+        "month": 5,
+        "month_name": "May",
+        "topics": [
+          {
+            "term": "summarize",
+            "score": 0.111111
+          },
+          {
+            "term": "nested",
+            "score": 0.111111
+          },
+          {
+            "term": "zip",
+            "score": 0.111111
+          }
+        ]
+      },
+      {
+        "month": 6,
+        "month_name": "June",
+        "topics": [
+          {
+            "term": "best",
+            "score": 0.090909
+          },
+          {
+            "term": "hike",
+            "score": 0.090909
+          },
+          {
+            "term": "near",
+            "score": 0.090909
+          }
+        ]
+      }
+    ]
+  },
+  "milestones": {
+    "first_conversation": {
+      "title": "Kyoto trip planning",
+      "date": "2026-01-01",
+      "platform": "chatgpt",
+      "first_prompt": "Plan a 3-day trip to Kyoto in April."
+    },
+    "longest_conversation": {
+      "title": "Kyoto trip planning",
+      "platform": "chatgpt",
+      "messages": 4,
+      "words": 50,
+      "date": "2026-01-01"
+    },
+    "most_edited_prompt": {
+      "versions": 2,
+      "conversation_title": "Kyoto trip planning",
+      "prompt": "Plan a 3-day trip to Kyoto in April."
+    },
+    "latest_night_message": {
+      "time": "03:47",
+      "time_human": "3:47 AM",
+      "date": "2026-03-02",
+      "in_night_window": true,
+      "conversation_title": "Async bug",
+      "excerpt": "It sounds like the shared connection pool is exhausted; await the close or rais…",
+      "model": "gpt-4o-mini-2026-01-01"
+    }
+  },
+  "models": {
+    "unknown": {
+      "messages": 10,
+      "user_messages": 7,
+      "assistant_messages": 3,
+      "est_tokens": 128,
+      "est_cost_usd": 0.0007,
+      "rate_key": "default"
+    },
+    "gpt-4o": {
+      "messages": 2,
+      "user_messages": 0,
+      "assistant_messages": 2,
+      "est_tokens": 48,
+      "est_cost_usd": 0.0005,
+      "rate_key": "gpt-4o"
+    },
+    "gpt-4o-mini-2026-01-01": {
+      "messages": 1,
+      "user_messages": 0,
+      "assistant_messages": 1,
+      "est_tokens": 23,
+      "est_cost_usd": 0.0,
+      "rate_key": "gpt-4o-mini"
+    },
+    "gpt-5": {
+      "messages": 1,
+      "user_messages": 0,
+      "assistant_messages": 1,
+      "est_tokens": 14,
+      "est_cost_usd": 0.0001,
+      "rate_key": "gpt-5"
+    }
+  }
+}

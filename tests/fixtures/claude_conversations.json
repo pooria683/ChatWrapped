@@ -1,0 +1,53 @@
+[
+  {
+    "uuid": "claude-uuid-1",
+    "name": "Recipe ideas",
+    "created_at": "2026-02-10T12:00:00.000000Z",
+    "updated_at": "2026-02-10T12:05:00.000000Z",
+    "chat_messages": [
+      {
+        "uuid": "cm-1",
+        "text": "Give me a quick pasta recipe for tonight.",
+        "sender": "human",
+        "created_at": "2026-02-10T12:00:00.000000Z",
+        "updated_at": "2026-02-10T12:00:00.000000Z"
+      },
+      {
+        "uuid": "cm-2",
+        "text": "Try aglio e olio: garlic, olive oil, chili flakes, parsley, and spaghetti.",
+        "sender": "assistant",
+        "created_at": "2026-02-10T12:01:00.000000Z",
+        "updated_at": "2026-02-10T12:01:00.000000Z"
+      }
+    ]
+  },
+  {
+    "uuid": "claude-uuid-2",
+    "name": "Regex help",
+    "created_at": "2026-04-15T09:30:00.000000Z",
+    "updated_at": "2026-04-15T09:31:00.000000Z",
+    "chat_messages": [
+      {
+        "uuid": "cm-3",
+        "text": "Regex to parse email addresses from a blob of text?",
+        "sender": "human",
+        "created_at": "2026-04-15T09:30:00.000000Z",
+        "updated_at": "2026-04-15T09:30:00.000000Z"
+      },
+      {
+        "uuid": "cm-4",
+        "text": "Use a simple pattern like [\\w.+-]+@[\\w-]+\\.[\\w.]+ and validate afterwards.",
+        "sender": "assistant",
+        "created_at": "2026-04-15T09:31:00.000000Z",
+        "updated_at": "2026-04-15T09:31:00.000000Z"
+      },
+      {
+        "uuid": "cm-5",
+        "text": "",
+        "sender": "assistant",
+        "created_at": "2026-04-15T09:31:30.000000Z",
+        "updated_at": "2026-04-15T09:31:30.000000Z"
+      }
+    ]
+  }
+]

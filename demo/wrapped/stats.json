@@ -1,0 +1,564 @@
+{
+  "schema_version": 1,
+  "meta": {
+    "generated_at": "2026-11-16T17:19:09+00:00",
+    "year": 2026,
+    "years_present": [
+      2026
+    ],
+    "platforms": {
+      "chatgpt": 61,
+      "claude": 35,
+      "gemini": 15
+    },
+    "sources": [
+      "chatgpt-online-activity.zip!User Online Activity/Conversations__demo1-chatgpt-0001.zip!conversations.json",
+      "chatgpt-online-activity.zip!User Online Activity/Conversations__demo2-chatgpt-0002.zip!conversations.json",
+      "chats.json",
+      "claude-export.zip!conversations-000.zip!conversations.json",
+      "conversations.json"
+    ],
+    "redacted": false,
+    "tool": "chatwrapped",
+    "privacy": "parsed 100% locally; zero network calls",
+    "warnings": [
+      "claude-export.zip!memories.json: found 1 memor(y/ies) — counted as metadata only",
+      "claude-export.zip!projects-000.zip: found 1 project(s) — counted as metadata only"
+    ]
+  },
+  "totals": {
+    "conversations": 111,
+    "messages": 402,
+    "user_messages": 225,
+    "assistant_messages": 177,
+    "words": 4995,
+    "chars": 31250,
+    "est_tokens": 7669,
+    "est_cost_usd": 0.0485,
+    "cost_note": "estimate only — user messages priced as input, assistant as output, chars/4 tokens"
+  },
+  "activity": {
+    "per_day": {
+      "2026-01-12": 5,
+      "2026-01-16": 5,
+      "2026-01-19": 2,
+      "2026-01-31": 6,
+      "2026-02-02": 4,
+      "2026-02-10": 3,
+      "2026-02-13": 11,
+      "2026-02-14": 5,
+      "2026-02-20": 5,
+      "2026-02-22": 3,
+      "2026-02-26": 11,
+      "2026-03-10": 9,
+      "2026-03-11": 2,
+      "2026-03-17": 6,
+      "2026-03-20": 5,
+      "2026-03-21": 7,
+      "2026-03-23": 3,
+      "2026-03-24": 3,
+      "2026-03-26": 3,
+      "2026-03-30": 5,
+      "2026-04-04": 4,
+      "2026-04-06": 7,
+      "2026-04-10": 3,
+      "2026-04-13": 3,
+      "2026-04-18": 2,
+      "2026-04-20": 9,
+      "2026-04-23": 2,
+      "2026-04-25": 6,
+      "2026-04-26": 5,
+      "2026-04-28": 4,
+      "2026-05-05": 6,
+      "2026-05-06": 2,
+      "2026-05-07": 5,
+      "2026-05-14": 2,
+      "2026-05-21": 5,
+      "2026-05-23": 5,
+      "2026-05-25": 2,
+      "2026-06-02": 3,
+      "2026-06-05": 3,
+      "2026-06-06": 11,
+      "2026-06-15": 2,
+      "2026-06-21": 2,
+      "2026-06-25": 2,
+      "2026-06-27": 4,
+      "2026-07-01": 4,
+      "2026-07-03": 4,
+      "2026-07-08": 6,
+      "2026-07-10": 5,
+      "2026-07-12": 7,
+      "2026-07-13": 2,
+      "2026-07-17": 2,
+      "2026-07-18": 2,
+      "2026-07-24": 2,
+      "2026-07-29": 7,
+      "2026-08-02": 5,
+      "2026-08-04": 5,
+      "2026-08-07": 2,
+      "2026-08-12": 2,
+      "2026-08-15": 6,
+      "2026-08-16": 2,
+      "2026-08-19": 4,
+      "2026-08-27": 3,
+      "2026-08-28": 8,
+      "2026-08-29": 3,
+      "2026-09-02": 10,
+      "2026-09-03": 5,
+      "2026-09-04": 3,
+      "2026-09-05": 4,
+      "2026-09-10": 3,
+      "2026-09-12": 4,
+      "2026-09-22": 9,
+      "2026-09-23": 2,
+      "2026-09-28": 10,
+      "2026-10-03": 3,
+      "2026-10-13": 7,
+      "2026-10-16": 2,
+      "2026-10-19": 5,
+      "2026-10-27": 3,
+      "2026-10-30": 2,
+      "2026-11-04": 6,
+      "2026-11-10": 2,
+      "2026-11-11": 5,
+      "2026-11-14": 2,
+      "2026-11-16": 7,
+      "2026-11-29": 2,
+      "2026-12-05": 5,
+      "2026-12-13": 5,
+      "2026-12-15": 3,
+      "2026-12-20": 4,
+      "2026-12-21": 4,
+      "2026-12-24": 2
+    },
+    "per_month": {
+      "January": 18,
+      "February": 42,
+      "March": 43,
+      "April": 45,
+      "May": 27,
+      "June": 27,
+      "July": 41,
+      "August": 40,
+      "September": 50,
+      "October": 22,
+      "November": 24,
+      "December": 23
+    },
+    "per_month_num": {
+      "1": 18,
+      "2": 42,
+      "3": 43,
+      "4": 45,
+      "5": 27,
+      "6": 27,
+      "7": 41,
+      "8": 40,
+      "9": 50,
+      "10": 22,
+      "11": 24,
+      "12": 23
+    },
+    "per_weekday": {
+      "Mon": 70,
+      "Tue": 63,
+      "Wed": 50,
+      "Thu": 43,
+      "Fri": 62,
+      "Sat": 79,
+      "Sun": 35
+    },
+    "busiest_day": {
+      "date": "2026-02-13",
+      "messages": 11
+    },
+    "active_days": 91,
+    "avg_messages_per_active_day": 4.42,
+    "latest_night": {
+      "time": "05:16",
+      "time_human": "5:16 AM",
+      "date": "2026-07-12",
+      "in_night_window": true,
+      "conversation_title": "Kyoto travel planning #36",
+      "excerpt": "Plan a 5-day Kyoto itinerary in April with temples",
+      "model": null
+    }
+  },
+  "topics": {
+    "overall": [
+      {
+        "term": "week",
+        "score": 14.454455
+      },
+      {
+        "term": "explain",
+        "score": 12.072649
+      },
+      {
+        "term": "pass",
+        "score": 11.06945
+      },
+      {
+        "term": "cost",
+        "score": 11.06945
+      },
+      {
+        "term": "pass cost",
+        "score": 11.06945
+      },
+      {
+        "term": "cost week",
+        "score": 11.06945
+      },
+      {
+        "term": "best",
+        "score": 10.693715
+      },
+      {
+        "term": "difference",
+        "score": 9.109875
+      },
+      {
+        "term": "ser",
+        "score": 9.109875
+      },
+      {
+        "term": "estar",
+        "score": 9.109875
+      },
+      {
+        "term": "explain difference",
+        "score": 9.109875
+      },
+      {
+        "term": "difference ser",
+        "score": 9.109875
+      },
+      {
+        "term": "ser estar",
+        "score": 9.109875
+      },
+      {
+        "term": "linear",
+        "score": 8.461185
+      },
+      {
+        "term": "tactile",
+        "score": 8.461185
+      },
+      {
+        "term": "switches",
+        "score": 8.461185
+      },
+      {
+        "term": "typing",
+        "score": 8.461185
+      },
+      {
+        "term": "linear tactile",
+        "score": 8.461185
+      },
+      {
+        "term": "tactile switches",
+        "score": 8.461185
+      },
+      {
+        "term": "switches typing",
+        "score": 8.461185
+      }
+    ],
+    "by_month": [
+      {
+        "month": 1,
+        "month_name": "January",
+        "topics": [
+          {
+            "term": "explain",
+            "score": 0.670534
+          },
+          {
+            "term": "connection",
+            "score": 0.670534
+          },
+          {
+            "term": "pool",
+            "score": 0.670534
+          }
+        ]
+      },
+      {
+        "month": 2,
+        "month_name": "February",
+        "topics": [
+          {
+            "term": "explain",
+            "score": 2.0129
+          },
+          {
+            "term": "difference",
+            "score": 1.803941
+          },
+          {
+            "term": "ser",
+            "score": 1.803941
+          }
+        ]
+      },
+      {
+        "month": 3,
+        "month_name": "March",
+        "topics": [
+          {
+            "term": "week",
+            "score": 1.893733
+          },
+          {
+            "term": "pass",
+            "score": 1.723081
+          },
+          {
+            "term": "cost",
+            "score": 1.723081
+          }
+        ]
+      },
+      {
+        "month": 4,
+        "month_name": "April",
+        "topics": [
+          {
+            "term": "week",
+            "score": 2.088113
+          },
+          {
+            "term": "pass",
+            "score": 1.816223
+          },
+          {
+            "term": "cost",
+            "score": 1.816223
+          }
+        ]
+      },
+      {
+        "month": 5,
+        "month_name": "May",
+        "topics": [
+          {
+            "term": "layout",
+            "score": 1.069591
+          },
+          {
+            "term": "good",
+            "score": 1.069591
+          },
+          {
+            "term": "programming",
+            "score": 1.069591
+          }
+        ]
+      },
+      {
+        "month": 6,
+        "month_name": "June",
+        "topics": [
+          {
+            "term": "explain",
+            "score": 1.022698
+          },
+          {
+            "term": "difference",
+            "score": 1.022698
+          },
+          {
+            "term": "ser",
+            "score": 1.022698
+          }
+        ]
+      },
+      {
+        "month": 7,
+        "month_name": "July",
+        "topics": [
+          {
+            "term": "linear",
+            "score": 1.178229
+          },
+          {
+            "term": "tactile",
+            "score": 1.178229
+          },
+          {
+            "term": "switches",
+            "score": 1.178229
+          }
+        ]
+      },
+      {
+        "month": 8,
+        "month_name": "August",
+        "topics": [
+          {
+            "term": "week",
+            "score": 1.469705
+          },
+          {
+            "term": "sourdough",
+            "score": 1.302075
+          },
+          {
+            "term": "starter",
+            "score": 1.302075
+          }
+        ]
+      },
+      {
+        "month": 9,
+        "month_name": "September",
+        "topics": [
+          {
+            "term": "layout",
+            "score": 1.788601
+          },
+          {
+            "term": "good",
+            "score": 1.788601
+          },
+          {
+            "term": "programming",
+            "score": 1.788601
+          }
+        ]
+      },
+      {
+        "month": 10,
+        "month_name": "October",
+        "topics": [
+          {
+            "term": "linear",
+            "score": 0.725841
+          },
+          {
+            "term": "tactile",
+            "score": 0.725841
+          },
+          {
+            "term": "switches",
+            "score": 0.725841
+          }
+        ]
+      },
+      {
+        "month": 11,
+        "month_name": "November",
+        "topics": [
+          {
+            "term": "learn",
+            "score": 0.98197
+          },
+          {
+            "term": "next",
+            "score": 0.98197
+          },
+          {
+            "term": "learn next",
+            "score": 0.98197
+          }
+        ]
+      },
+      {
+        "month": 12,
+        "month_name": "December",
+        "topics": [
+          {
+            "term": "week",
+            "score": 1.105902
+          },
+          {
+            "term": "pass",
+            "score": 1.016178
+          },
+          {
+            "term": "cost",
+            "score": 1.016178
+          }
+        ]
+      }
+    ]
+  },
+  "milestones": {
+    "first_conversation": {
+      "title": "Python async debugging #25",
+      "date": "2026-01-12",
+      "platform": "chatgpt",
+      "first_prompt": "Why does my asyncio gather hang on the second run?"
+    },
+    "longest_conversation": {
+      "title": "Half marathon training #33",
+      "platform": "chatgpt",
+      "messages": 6,
+      "words": 96,
+      "date": "2026-04-25"
+    },
+    "most_edited_prompt": null,
+    "latest_night_message": {
+      "time": "05:16",
+      "time_human": "5:16 AM",
+      "date": "2026-07-12",
+      "in_night_window": true,
+      "conversation_title": "Kyoto travel planning #36",
+      "excerpt": "Plan a 5-day Kyoto itinerary in April with temples",
+      "model": null
+    }
+  },
+  "models": {
+    "unknown": {
+      "messages": 282,
+      "user_messages": 225,
+      "assistant_messages": 57,
+      "est_tokens": 3767,
+      "est_cost_usd": 0.0195,
+      "rate_key": "default"
+    },
+    "o3": {
+      "messages": 32,
+      "user_messages": 0,
+      "assistant_messages": 32,
+      "est_tokens": 1145,
+      "est_cost_usd": 0.0092,
+      "rate_key": "o3"
+    },
+    "gpt-5": {
+      "messages": 27,
+      "user_messages": 0,
+      "assistant_messages": 27,
+      "est_tokens": 963,
+      "est_cost_usd": 0.0096,
+      "rate_key": "gpt-5"
+    },
+    "gpt-4o": {
+      "messages": 27,
+      "user_messages": 0,
+      "assistant_messages": 27,
+      "est_tokens": 934,
+      "est_cost_usd": 0.0093,
+      "rate_key": "gpt-4o"
+    },
+    "gpt-4o-mini": {
+      "messages": 19,
+      "user_messages": 0,
+      "assistant_messages": 19,
+      "est_tokens": 678,
+      "est_cost_usd": 0.0004,
+      "rate_key": "gpt-4o-mini"
+    },
+    "gemini-2.5-flash": {
+      "messages": 15,
+      "user_messages": 0,
+      "assistant_messages": 15,
+      "est_tokens": 182,
+      "est_cost_usd": 0.0005,
+      "rate_key": "gemini-2.5-flash"
+    }
+  }
+}

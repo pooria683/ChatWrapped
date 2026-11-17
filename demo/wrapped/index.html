@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChatWrapped 2026 — your AI year in review</title>
+<style>
+  :root {
+    --bg0:#0b0f1a; --bg1:#131a2e; --bg2:#2a1240;
+    --ink:#f8fafc; --muted:#94a3b8; --accent:#a855f7; --accent2:#ec4899;
+    --card:rgba(255,255,255,0.045); --line:rgba(255,255,255,0.09);
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
+  body {
+    background: radial-gradient(1200px 800px at 80% -10%, #2a1240 0%, transparent 60%),
+                radial-gradient(1000px 700px at -10% 110%, #1e1b4b 0%, transparent 55%),
+                linear-gradient(160deg, var(--bg0), var(--bg1) 55%, var(--bg2));
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    min-height:100vh;
+  }
+  #story { max-width:760px; margin:0 auto; padding:0 20px 20vh; }
+  .card {
+    min-height:92vh; display:flex; flex-direction:column; justify-content:center;
+    padding:48px 36px; margin:4vh 0; border-radius:28px;
+    background:var(--card); border:1px solid var(--line);
+    backdrop-filter:blur(6px);
+    opacity:0; transform:translateY(48px) scale(0.985);
+    transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1);
+    scroll-snap-align:start;
+  }
+  .card.in { opacity:1; transform:none; }
+  html { scroll-snap-type:y proximity; }
+  .kicker {
+    font-size:13px; font-weight:800; letter-spacing:.35em; text-transform:uppercase;
+    color:var(--accent); margin-bottom:22px;
+  }
+  .big {
+    font-size:clamp(56px, 13vw, 128px); font-weight:800; line-height:1.02;
+    background:linear-gradient(90deg,#fff, #e9d5ff 55%, #f0abfc);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .big.pink { background:linear-gradient(90deg,#f0abfc,#ec4899); -webkit-background-clip:text; background-clip:text; }
+  .big.green { background:linear-gradient(90deg,#6ee7b7,#10a37f); -webkit-background-clip:text; background-clip:text; }
+  .big.blue { background:linear-gradient(90deg,#93c5fd,#4285f4); -webkit-background-clip:text; background-clip:text; }
+  .sub { color:var(--muted); font-size:clamp(17px,2.6vw,22px); margin-top:18px; line-height:1.5; max-width:56ch; }
+  .sub b { color:var(--ink); }
+  .hero-year { font-size:clamp(80px,20vw,190px); font-weight:800; line-height:.95;
+    background:linear-gradient(90deg,#a855f7,#ec4899); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .brand { font-size:15px; font-weight:800; letter-spacing:.45em; color:#c4b5fd; }
+  .chips { display:flex; flex-wrap:wrap; gap:10px; margin-top:26px; }
+  .chip { padding:10px 18px; border-radius:999px; background:rgba(255,255,255,.08);
+    border:1px solid var(--line); font-weight:600; font-size:16px; color:#e9d5ff; }
+  .row { display:flex; justify-content:space-between; align-items:baseline; gap:16px;
+    padding:14px 0; border-bottom:1px solid var(--line); font-size:clamp(16px,2.4vw,20px); }
+  .row:last-child { border-bottom:none; }
+  .row .k { color:var(--muted); }
+  .row .v { font-weight:800; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .bars { display:flex; align-items:flex-end; gap:6px; height:220px; margin-top:30px; }
+  .bar { flex:1; border-radius:6px 6px 0 0; background:linear-gradient(180deg,#a855f7,#6d28d9);
+    min-height:4px; position:relative; transition:height .8s ease; }
+  .bar.hot { background:linear-gradient(180deg,#f0abfc,#ec4899); }
+  .barlabels { display:flex; gap:6px; margin-top:8px; color:var(--muted); font-size:11px; font-weight:700; }
+  .barlabels span { flex:1; text-align:center; }
+  #heatmap { display:grid; grid-auto-flow:column; grid-template-rows:repeat(7,1fr); gap:4px;
+    margin-top:28px; height:190px; }
+  #heatmap .cell { border-radius:3px; background:rgba(255,255,255,.06); }
+  .legend { display:flex; align-items:center; gap:5px; color:var(--muted); font-size:12px; margin-top:12px; justify-content:flex-end; }
+  .legend i { width:12px; height:12px; border-radius:3px; display:inline-block; }
+  .share-wrap { width:min(78vw, 340px); margin:30px auto 8px; border-radius:18px; overflow:hidden;
+    box-shadow:0 30px 80px rgba(0,0,0,.55); border:1px solid var(--line); }
+  .share-wrap svg { display:block; width:100%; height:auto; }
+  .btns { display:flex; gap:12px; justify-content:center; margin-top:26px; flex-wrap:wrap; }
+  button {
+    cursor:pointer; border:none; border-radius:999px; padding:14px 26px; font-size:16px; font-weight:800;
+    background:linear-gradient(90deg,#a855f7,#ec4899); color:#fff;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  button:hover { transform:translateY(-2px); box-shadow:0 12px 30px rgba(168,85,247,.4); }
+  button.ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+  .privacy { text-align:center; color:var(--muted); font-size:15px; line-height:1.7; }
+  .privacy .lock { font-size:34px; display:block; margin-bottom:14px; }
+  footer { text-align:center; color:#64748b; font-size:13px; padding:40px 0 10px; }
+  .quote { font-size:clamp(18px,3vw,26px); font-style:italic; color:#e9d5ff; margin-top:16px; line-height:1.5; }
+  noscript .card { opacity:1; transform:none; }
+</style>
+</head>
+<body>
+<div id="story"></div>
+<div id="share-svg-source" style="display:none"><svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b0f1a"/><stop offset="0.55" stop-color="#131a2e"/><stop offset="1" stop-color="#2a1240"/></linearGradient><linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a855f7"/><stop offset="1" stop-color="#ec4899"/></linearGradient></defs><rect width="1080" height="1920" fill="url(#bg)"/><circle cx="900" cy="200" r="420" fill="url(#accent)" opacity="0.16"/><circle cx="140" cy="1500" r="380" fill="url(#accent)" opacity="0.12"/><circle cx="960" cy="1650" r="260" fill="url(#accent)" opacity="0.18"/><text x="90" y="150" fill="#a78bfa" font-size="34" font-weight="700" letter-spacing="6">CHATWRAPPED</text><text x="90" y="300" fill="#ffffff" font-size="150" font-weight="800">2026</text><text x="90" y="370" fill="#94a3b8" font-size="40">your AI year in review</text><text x="90" y="560" fill="#ffffff" font-size="190" font-weight="800">402</text><text x="90" y="622" fill="#c4b5fd" font-size="44" font-weight="600">messages across 111 conversations</text><text x="90" y="752" fill="#f0abfc" font-size="64" font-weight="800">4,995</text><text x="90" y="800" fill="#94a3b8" font-size="32">words written</text><text x="540" y="752" fill="#f0abfc" font-size="64" font-weight="800">7,669</text><text x="540" y="800" fill="#94a3b8" font-size="32">est. tokens</text><text x="90" y="942" fill="#f0abfc" font-size="64" font-weight="800">$0.05</text><text x="90" y="990" fill="#94a3b8" font-size="32">est. cost*</text><text x="540" y="942" fill="#f0abfc" font-size="64" font-weight="800">91</text><text x="540" y="990" fill="#94a3b8" font-size="32">active days</text><text x="90" y="1192" fill="#ffffff" font-size="36" font-weight="700">🔥 Busiest day: 2026-02-13 (11 msgs)</text><text x="90" y="1258" fill="#ffffff" font-size="36" font-weight="700">🌙 Latest night owl: 5:16 AM</text><text x="90" y="1348" fill="#94a3b8" font-size="30" font-weight="700" letter-spacing="3">TOP TOPICS</text><rect x="90" y="1378" width="110" height="48" rx="24" fill="#ffffff" fill-opacity="0.10"/><text x="107" y="1412" fill="#e9d5ff" font-size="28" font-weight="600">week</text><rect x="216" y="1378" width="167" height="48" rx="24" fill="#ffffff" fill-opacity="0.10"/><text x="233" y="1412" fill="#e9d5ff" font-size="28" font-weight="600">explain</text><rect x="399" y="1378" width="110" height="48" rx="24" fill="#ffffff" fill-opacity="0.10"/><text x="416" y="1412" fill="#e9d5ff" font-size="28" font-weight="600">pass</text><rect x="525" y="1378" width="110" height="48" rx="24" fill="#ffffff" fill-opacity="0.10"/><text x="542" y="1412" fill="#e9d5ff" font-size="28" font-weight="600">cost</text><rect x="651" y="1378" width="205" height="48" rx="24" fill="#ffffff" fill-opacity="0.10"/><text x="668" y="1412" fill="#e9d5ff" font-size="28" font-weight="600">pass cost</text><rect x="90" y="1444" width="205" height="48" rx="24" fill="#ffffff" fill-opacity="0.10"/><text x="107" y="1478" fill="#e9d5ff" font-size="28" font-weight="600">cost week</text><text x="90" y="1578" fill="#94a3b8" font-size="30" font-weight="700" letter-spacing="3">PLATFORMS</text><rect x="90" y="1598" width="494" height="52" rx="10" fill="#10a37f"/><text x="598" y="1634" fill="#e2e8f0" font-size="28" font-weight="600">chatgpt · 61</text><rect x="0" y="1670" width="283" height="52" rx="10" fill="#d97757"/><text x="297" y="1706" fill="#e2e8f0" font-size="28" font-weight="600">claude · 35</text><rect x="0" y="1742" width="121" height="52" rx="10" fill="#4285f4"/><text x="135" y="1778" fill="#e2e8f0" font-size="28" font-weight="600">gemini · 15</text><text x="90" y="1870" fill="#94a3b8" font-size="30" font-weight="700" letter-spacing="3">TOP MODELS</text><text x="90" y="1928" fill="#e2e8f0" font-size="32" font-weight="600">unknown — 282 msgs</text><text x="90" y="1980" fill="#e2e8f0" font-size="32" font-weight="600">o3 — 32 msgs</text><text x="90" y="2032" fill="#e2e8f0" font-size="32" font-weight="600">gpt-5 — 27 msgs</text><line x1="90" y1="1770" x2="990" y2="1770" stroke="#ffffff" stroke-opacity="0.15"/><text x="90" y="1810" fill="#94a3b8" font-size="30">100% local · zero network calls · nothing left your machine</text><text x="90" y="1856" fill="#64748b" font-size="26">*cost is an estimate · made with ChatWrapped</text></svg></div>
+<noscript>
+  <div style="max-width:640px;margin:40px auto;padding:24px;color:#f8fafc;font-family:sans-serif">
+    <h1>ChatWrapped 2026</h1>
+    <p>Generated 2026-11-16T17:19:09+00:00 — enable JavaScript to see the full interactive story.</p>
+  </div>
+</noscript>
+<script>
+(function () {
+  "use strict";
+  var DATA = {"schema_version": 1, "meta": {"generated_at": "2026-11-16T17:19:09+00:00", "year": 2026, "years_present": [2026], "platforms": {"chatgpt": 61, "claude": 35, "gemini": 15}, "sources": ["chatgpt-online-activity.zip!User Online Activity/Conversations__demo1-chatgpt-0001.zip!conversations.json", "chatgpt-online-activity.zip!User Online Activity/Conversations__demo2-chatgpt-0002.zip!conversations.json", "chats.json", "claude-export.zip!conversations-000.zip!conversations.json", "conversations.json"], "redacted": false, "tool": "chatwrapped", "privacy": "parsed 100% locally; zero network calls", "warnings": ["claude-export.zip!memories.json: found 1 memor(y/ies) — counted as metadata only", "claude-export.zip!projects-000.zip: found 1 project(s) — counted as metadata only"]}, "totals": {"conversations": 111, "messages": 402, "user_messages": 225, "assistant_messages": 177, "words": 4995, "chars": 31250, "est_tokens": 7669, "est_cost_usd": 0.0485, "cost_note": "estimate only — user messages priced as input, assistant as output, chars/4 tokens"}, "activity": {"per_day": {"2026-01-12": 5, "2026-01-16": 5, "2026-01-19": 2, "2026-01-31": 6, "2026-02-02": 4, "2026-02-10": 3, "2026-02-13": 11, "2026-02-14": 5, "2026-02-20": 5, "2026-02-22": 3, "2026-02-26": 11, "2026-03-10": 9, "2026-03-11": 2, "2026-03-17": 6, "2026-03-20": 5, "2026-03-21": 7, "2026-03-23": 3, "2026-03-24": 3, "2026-03-26": 3, "2026-03-30": 5, "2026-04-04": 4, "2026-04-06": 7, "2026-04-10": 3, "2026-04-13": 3, "2026-04-18": 2, "2026-04-20": 9, "2026-04-23": 2, "2026-04-25": 6, "2026-04-26": 5, "2026-04-28": 4, "2026-05-05": 6, "2026-05-06": 2, "2026-05-07": 5, "2026-05-14": 2, "2026-05-21": 5, "2026-05-23": 5, "2026-05-25": 2, "2026-06-02": 3, "2026-06-05": 3, "2026-06-06": 11, "2026-06-15": 2, "2026-06-21": 2, "2026-06-25": 2, "2026-06-27": 4, "2026-07-01": 4, "2026-07-03": 4, "2026-07-08": 6, "2026-07-10": 5, "2026-07-12": 7, "2026-07-13": 2, "2026-07-17": 2, "2026-07-18": 2, "2026-07-24": 2, "2026-07-29": 7, "2026-08-02": 5, "2026-08-04": 5, "2026-08-07": 2, "2026-08-12": 2, "2026-08-15": 6, "2026-08-16": 2, "2026-08-19": 4, "2026-08-27": 3, "2026-08-28": 8, "2026-08-29": 3, "2026-09-02": 10, "2026-09-03": 5, "2026-09-04": 3, "2026-09-05": 4, "2026-09-10": 3, "2026-09-12": 4, "2026-09-22": 9, "2026-09-23": 2, "2026-09-28": 10, "2026-10-03": 3, "2026-10-13": 7, "2026-10-16": 2, "2026-10-19": 5, "2026-10-27": 3, "2026-10-30": 2, "2026-11-04": 6, "2026-11-10": 2, "2026-11-11": 5, "2026-11-14": 2, "2026-11-16": 7, "2026-11-29": 2, "2026-12-05": 5, "2026-12-13": 5, "2026-12-15": 3, "2026-12-20": 4, "2026-12-21": 4, "2026-12-24": 2}, "per_month": {"January": 18, "February": 42, "March": 43, "April": 45, "May": 27, "June": 27, "July": 41, "August": 40, "September": 50, "October": 22, "November": 24, "December": 23}, "per_month_num": {"1": 18, "2": 42, "3": 43, "4": 45, "5": 27, "6": 27, "7": 41, "8": 40, "9": 50, "10": 22, "11": 24, "12": 23}, "per_weekday": {"Mon": 70, "Tue": 63, "Wed": 50, "Thu": 43, "Fri": 62, "Sat": 79, "Sun": 35}, "busiest_day": {"date": "2026-02-13", "messages": 11}, "active_days": 91, "avg_messages_per_active_day": 4.42, "latest_night": {"time": "05:16", "time_human": "5:16 AM", "date": "2026-07-12", "in_night_window": true, "conversation_title": "Kyoto travel planning #36", "excerpt": "Plan a 5-day Kyoto itinerary in April with temples", "model": null}}, "topics": {"overall": [{"term": "week", "score": 14.454455}, {"term": "explain", "score": 12.072649}, {"term": "pass", "score": 11.06945}, {"term": "cost", "score": 11.06945}, {"term": "pass cost", "score": 11.06945}, {"term": "cost week", "score": 11.06945}, {"term": "best", "score": 10.693715}, {"term": "difference", "score": 9.109875}, {"term": "ser", "score": 9.109875}, {"term": "estar", "score": 9.109875}, {"term": "explain difference", "score": 9.109875}, {"term": "difference ser", "score": 9.109875}, {"term": "ser estar", "score": 9.109875}, {"term": "linear", "score": 8.461185}, {"term": "tactile", "score": 8.461185}, {"term": "switches", "score": 8.461185}, {"term": "typing", "score": 8.461185}, {"term": "linear tactile", "score": 8.461185}, {"term": "tactile switches", "score": 8.461185}, {"term": "switches typing", "score": 8.461185}], "by_month": [{"month": 1, "month_name": "January", "topics": [{"term": "explain", "score": 0.670534}, {"term": "connection", "score": 0.670534}, {"term": "pool", "score": 0.670534}]}, {"month": 2, "month_name": "February", "topics": [{"term": "explain", "score": 2.0129}, {"term": "difference", "score": 1.803941}, {"term": "ser", "score": 1.803941}]}, {"month": 3, "month_name": "March", "topics": [{"term": "week", "score": 1.893733}, {"term": "pass", "score": 1.723081}, {"term": "cost", "score": 1.723081}]}, {"month": 4, "month_name": "April", "topics": [{"term": "week", "score": 2.088113}, {"term": "pass", "score": 1.816223}, {"term": "cost", "score": 1.816223}]}, {"month": 5, "month_name": "May", "topics": [{"term": "layout", "score": 1.069591}, {"term": "good", "score": 1.069591}, {"term": "programming", "score": 1.069591}]}, {"month": 6, "month_name": "June", "topics": [{"term": "explain", "score": 1.022698}, {"term": "difference", "score": 1.022698}, {"term": "ser", "score": 1.022698}]}, {"month": 7, "month_name": "July", "topics": [{"term": "linear", "score": 1.178229}, {"term": "tactile", "score": 1.178229}, {"term": "switches", "score": 1.178229}]}, {"month": 8, "month_name": "August", "topics": [{"term": "week", "score": 1.469705}, {"term": "sourdough", "score": 1.302075}, {"term": "starter", "score": 1.302075}]}, {"month": 9, "month_name": "September", "topics": [{"term": "layout", "score": 1.788601}, {"term": "good", "score": 1.788601}, {"term": "programming", "score": 1.788601}]}, {"month": 10, "month_name": "October", "topics": [{"term": "linear", "score": 0.725841}, {"term": "tactile", "score": 0.725841}, {"term": "switches", "score": 0.725841}]}, {"month": 11, "month_name": "November", "topics": [{"term": "learn", "score": 0.98197}, {"term": "next", "score": 0.98197}, {"term": "learn next", "score": 0.98197}]}, {"month": 12, "month_name": "December", "topics": [{"term": "week", "score": 1.105902}, {"term": "pass", "score": 1.016178}, {"term": "cost", "score": 1.016178}]}]}, "milestones": {"first_conversation": {"title": "Python async debugging #25", "date": "2026-01-12", "platform": "chatgpt", "first_prompt": "Why does my asyncio gather hang on the second run?"}, "longest_conversation": {"title": "Half marathon training #33", "platform": "chatgpt", "messages": 6, "words": 96, "date": "2026-04-25"}, "most_edited_prompt": null, "latest_night_message": {"time": "05:16", "time_human": "5:16 AM", "date": "2026-07-12", "in_night_window": true, "conversation_title": "Kyoto travel planning #36", "excerpt": "Plan a 5-day Kyoto itinerary in April with temples", "model": null}}, "models": {"unknown": {"messages": 282, "user_messages": 225, "assistant_messages": 57, "est_tokens": 3767, "est_cost_usd": 0.0195, "rate_key": "default"}, "o3": {"messages": 32, "user_messages": 0, "assistant_messages": 32, "est_tokens": 1145, "est_cost_usd": 0.0092, "rate_key": "o3"}, "gpt-5": {"messages": 27, "user_messages": 0, "assistant_messages": 27, "est_tokens": 963, "est_cost_usd": 0.0096, "rate_key": "gpt-5"}, "gpt-4o": {"messages": 27, "user_messages": 0, "assistant_messages": 27, "est_tokens": 934, "est_cost_usd": 0.0093, "rate_key": "gpt-4o"}, "gpt-4o-mini": {"messages": 19, "user_messages": 0, "assistant_messages": 19, "est_tokens": 678, "est_cost_usd": 0.0004, "rate_key": "gpt-4o-mini"}, "gemini-2.5-flash": {"messages": 15, "user_messages": 0, "assistant_messages": 15, "est_tokens": 182, "est_cost_usd": 0.0005, "rate_key": "gemini-2.5-flash"}}};
+  var YEAR = "2026";
+  var REDACTED = false;
+  var story = document.getElementById("story");
+
+  function fmt(n) { return Number(n).toLocaleString("en-US"); }
+  function el(cls, html) {
+    var d = document.createElement("div");
+    d.className = "card" + (cls ? " " + cls : "");
+    if (html) d.innerHTML = html;
+    story.appendChild(d);
+    return d;
+  }
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (ch) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch];
+    });
+  }
+  function kicker(txt) { return '<div class="kicker">' + esc(txt) + "</div>"; }
+
+  var t = DATA.totals, a = DATA.activity, ms = DATA.milestones, meta = DATA.meta;
+
+  /* 1 — hero */
+  el("", '<div class="brand">✦ CHATWRAPPED</div>' +
+    '<div class="hero-year" style="margin-top:26px">' + esc(YEAR) + "</div>" +
+    '<div class="sub" style="font-size:clamp(20px,3.4vw,28px);color:#e2e8f0;margin-top:10px">Your AI year in review.</div>' +
+    '<div class="sub">Across <b>' + esc(fmt(meta.platforms ? Object.keys(meta.platforms).join(" + ") : "")) + "</b>, " +
+    fmt(t.conversations) + " conversations happened.</div>");
+
+  /* 2 — messages */
+  el("", kicker("Messages") +
+    '<div class="big" data-count="' + t.messages + '">0</div>' +
+    '<div class="sub">You sent <b>' + fmt(t.user_messages) + "</b>, the AI replied <b>" + fmt(t.assistant_messages) + "</b> times.</div>");
+
+  /* 3 — words / tokens / cost */
+  el("", kicker("Volume") +
+    '<div class="big green" data-count="' + t.words + '">0</div>' +
+    '<div class="sub">words — about <b>' + fmt(t.est_tokens) + "</b> estimated tokens (chars/4).</div>" +
+    '<div class="sub" style="margin-top:26px">Estimated cost: <b style="font-size:1.4em">$' +
+    Number(t.est_cost_usd).toFixed(2) + "</b> <span style='font-size:.8em'>(rough estimate only — real pricing varies by plan &amp; date)</span></div>");
+
+  /* 4 — heatmap */
+  var heatCard = el("", kicker("Your year at a glance") + '<div id="heatmap"></div>' +
+    '<div class="legend">less <i style="background:rgba(255,255,255,.06)"></i><i style="background:rgba(168,85,247,.25)"></i><i style="background:rgba(168,85,247,.5)"></i><i style="background:rgba(236,72,153,.8)"></i><i style="background:#ec4899"></i> more</div>' +
+    '<div class="sub">' + fmt(a.active_days) + " active days — averaging <b>" + a.avg_messages_per_active_day + "</b> messages per active day.</div>");
+  buildHeatmap(document.getElementById("heatmap"), a.per_day, a.per_month_num);
+
+  /* 5 — monthly bars */
+  var monthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  var pm = a.per_month_num || {};
+  var maxM = 1, barsHtml = "", labelsHtml = "";
+  for (var mIdx = 1; mIdx <= 12; mIdx++) {
+    var v = pm[String(mIdx)] || 0;
+    if (v > maxM) maxM = v;
+    barsHtml += '<div class="bar' + (v === maxM && v > 0 ? " hot" : "") + '" style="height:' + Math.max(3, Math.round(v / maxM * 100)) + '%" title="' + monthNames[mIdx-1] + ": " + v + '"></div>';
+    labelsHtml += "<span>" + monthNames[mIdx-1] + "</span>";
+  }
+  el("", kicker("Monthly rhythm") + '<div class="bars">' + barsHtml + '</div>' +
+    '<div class="barlabels">' + labelsHtml + '</div>' +
+    '<div class="sub">Every month had a pulse. Find yours.</div>');
+
+  /* 6 — busiest day */
+  if (a.busiest_day) {
+    el("", kicker("Peak day") +
+      '<div class="big pink">' + esc(a.busiest_day.date) + "</div>" +
+      '<div class="sub">Your busiest day — <b>' + fmt(a.busiest_day.messages) + " messages</b> in a single day.</div>");
+  }
+
+  /* 7 — night owl */
+  if (a.latest_night) {
+    el("", kicker("Night owl") +
+      '<div class="big blue">' + esc(a.latest_night.time_human || a.latest_night.time) + "</div>" +
+      '<div class="sub">Your latest-night message, sent on ' + esc(a.latest_night.date) +
+      (a.latest_night.conversation_title ? ' in “' + esc(a.latest_night.conversation_title) + "”" : "") +
+      (REDACTED ? "" : (a.latest_night.excerpt ? '<div class="quote">“' + esc(a.latest_night.excerpt) + "”</div>" : "")) + "</div>");
+  }
+
+  /* 8 — top topics */
+  var tops = DATA.topics.overall || [];
+  if (tops.length) {
+    var chips = "";
+    for (var i = 0; i < tops.length; i++) chips += '<span class="chip">' + esc(tops[i].term) + "</span>";
+    el("", kicker("What you talked about") + '<div class="big" style="font-size:clamp(34px,7vw,60px)">Top topics</div>' +
+      '<div class="chips">' + chips + "</div>" +
+      '<div class="sub">TF-IDF keywords from your ' + fmt(t.user_messages) + " prompts.</div>");
+  }
+
+  /* 9 — monthly topics */
+  var byMonth = DATA.topics.by_month || [];
+  if (byMonth.length) {
+    var rows = "";
+    for (var j = 0; j < byMonth.length; j++) {
+      var mm = byMonth[j];
+      var terms = mm.topics.map(function (x) { return x.term; }).join(", ");
+      rows += '<div class="row"><span class="k">' + esc(mm.month_name) + '</span><span class="v">' + esc(terms) + "</span></div>";
+    }
+    el("", kicker("Month by month") + '<div class="big" style="font-size:clamp(34px,7vw,60px)">Your year, themed</div>' +
+      '<div style="margin-top:20px">' + rows + "</div>");
+  }
+
+  /* 10 — models */
+  var models = DATA.models || {};
+  var mkeys = Object.keys(models).sort(function (p, q) { return models[q].est_tokens - models[p].est_tokens; });
+  if (mkeys.length) {
+    var totalToks = mkeys.reduce(function (s, k) { return s + models[k].est_tokens; }, 0) || 1;
+    var mrows = "";
+    for (var k = 0; k < mkeys.length; k++) {
+      var name = mkeys[k], mod = models[name];
+      var pct = Math.round(mod.est_tokens / totalToks * 100);
+      mrows += '<div class="row"><span class="k">' + esc(name) + '</span><span class="v">' + fmt(mod.messages) + " msgs · " + pct + '% · $' + Number(mod.est_cost_usd).toFixed(2) + "</span></div>";
+    }
+    el("", kicker("Models") + '<div class="big" style="font-size:clamp(34px,7vw,60px)">' + mkeys.length + " model" + (mkeys.length > 1 ? "s" : "") + "</div>" +
+      '<div style="margin-top:20px">' + mrows + "</div>");
+  }
+
+  /* 11 — milestones */
+  var mhtml = "";
+  if (ms.first_conversation) {
+    mhtml += '<div class="row"><span class="k">First conversation</span><span class="v">' + esc(ms.first_conversation.date) + "</span></div>";
+    if (!REDACTED && ms.first_conversation.first_prompt) mhtml += '<div class="quote">“' + esc(ms.first_conversation.first_prompt) + "”</div>";
+  }
+  if (ms.longest_conversation) {
+    var lc = ms.longest_conversation;
+    mhtml += '<div class="row"><span class="k">Longest chat</span><span class="v">' + esc(lc.title || "untitled") + " — " + fmt(lc.messages) + " msgs</span></div>";
+  }
+  if (ms.most_edited_prompt) {
+    var me = ms.most_edited_prompt;
+    mhtml += '<div class="row"><span class="k">Most-edited prompt</span><span class="v">' + me.versions + " versions</span></div>";
+    if (!REDACTED && me.prompt) mhtml += '<div class="quote">“' + esc(me.prompt) + "”</div>";
+  }
+  if (mhtml) el("", kicker("Milestones") + '<div class="big" style="font-size:clamp(34px,7vw,60px)">Highlights</div><div style="margin-top:20px">' + mhtml + "</div>");
+
+  /* 12 — privacy */
+  el("", '<div class="privacy"><span class="lock">🔒</span>' +
+    "Everything on this page was computed <b>on your machine</b>.<br>" +
+    "ChatWrapped makes <b>zero network calls</b> — your chats never left this device.<br>" +
+    (meta.warnings && meta.warnings.length ? '<span style="font-size:13px">notes: ' + esc(meta.warnings.length + " file(s) skipped with warnings") + "</span>" : "") +
+    "</div>");
+
+  /* 13 — share card */
+  var shareCard = el("", kicker("Share your wrapped") +
+    '<div class="big pink" style="font-size:clamp(34px,7vw,56px)">Show the world.</div>' +
+    '<div class="share-wrap" id="share-card-slot"></div>' +
+    '<div class="btns"><button id="dl-png">Download PNG (1080×1920)</button>' +
+    '<button id="dl-svg" class="ghost">Download SVG</button></div>' +
+    '<div class="sub" style="text-align:center;margin-left:auto;margin-right:auto">Self-contained card — no tracking, no upload.</div>');
+  document.getElementById("share-card-slot").innerHTML = document.getElementById("share-svg-source").innerHTML;
+  wireDownloads();
+
+  /* footer */
+  var f = document.createElement("footer");
+  f.textContent = "ChatWrapped · generated " + esc("2026-11-16T17:19:09+00:00") + " · 100% local, zero network calls · MIT";
+  story.appendChild(f);
+
+  /* ---- interactions ---- */
+  function buildHeatmap(grid, perDay, perMonth) {
+    var year = parseInt(YEAR, 10);
+    if (!year || isNaN(year)) {
+      var keys = Object.keys(perDay || {});
+      if (keys.length) year = parseInt(keys[keys.length - 1].slice(0, 4), 10);
+      else year = new Date().getUTCFullYear();
+    }
+    var counts = perDay || {};
+    var max = 1;
+    Object.keys(counts).forEach(function (d) { if (counts[d] > max) max = counts[d]; });
+    var start = new Date(Date.UTC(year, 0, 1));
+    var end = new Date(Date.UTC(year, 11, 31));
+    var d = new Date(start);
+    while (d.getUTCDay() !== 1) d.setUTCDate(d.getUTCDate() - 1); // back to Monday
+    while (d <= end || d.getUTCDay() !== 1) {
+      for (var r = 0; r < 7; r++) {
+        var cell = document.createElement("div");
+        cell.className = "cell";
+        var iso = d.toISOString().slice(0, 10);
+        var c = counts[iso] || 0;
+        if (c > 0) {
+          var level = c / max;
+          cell.style.background = level > 0.66 ? "#ec4899" : level > 0.4 ? "rgba(236,72,153,.75)" : level > 0.18 ? "rgba(168,85,247,.5)" : "rgba(168,85,247,.25)";
+        }
+        cell.title = iso + ": " + c + " messages";
+        grid.appendChild(cell);
+        d.setUTCDate(d.getUTCDate() + 1);
+      }
+    }
+  }
+
+  function wireDownloads() {
+    var src = function () { return document.getElementById("share-svg-source").innerHTML; };
+    document.getElementById("dl-svg").addEventListener("click", function () {
+      saveBlob(new Blob([src()], { type: "image/svg+xml;charset=utf-8" }), "chatwrapped-" + YEAR + ".svg");
+    });
+    document.getElementById("dl-png").addEventListener("click", function () {
+      var url = URL.createObjectURL(new Blob([src()], { type: "image/svg+xml;charset=utf-8" }));
+      var img = new Image();
+      img.onload = function () {
+        var scale = 2;
+        var canvas = document.createElement("canvas");
+        canvas.width = 1080 * scale; canvas.height = 1920 * scale;
+        var ctx = canvas.getContext("2d");
+        ctx.fillStyle = "#0b0f1a";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        canvas.toBlob(function (b) {
+          if (b) saveBlob(b, "chatwrapped-" + YEAR + ".png");
+          URL.revokeObjectURL(url);
+        }, "image/png");
+      };
+      img.onerror = function () { URL.revokeObjectURL(url); alert("PNG export needs the SVG to render — try the SVG button."); };
+      img.src = url;
+    });
+  }
+  function saveBlob(blob, name) {
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = name;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 800);
+  }
+
+  /* reveal + count-up */
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      e.target.classList.add("in");
+      var counters = e.target.querySelectorAll("[data-count]");
+      counters.forEach(function (cEl) {
+        if (cEl.dataset.done) return;
+        cEl.dataset.done = "1";
+        var target = parseInt(cEl.getAttribute("data-count"), 10) || 0;
+        var t0 = null, dur = 1200;
+        function step(ts) {
+          if (!t0) t0 = ts;
+          var p = Math.min(1, (ts - t0) / dur);
+          var eased = 1 - Math.pow(1 - p, 3);
+          cEl.textContent = fmt(Math.round(target * eased));
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.25 });
+  document.querySelectorAll(".card").forEach(function (cEl) { io.observe(cEl); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Nested hello",
+    "create_time": 1780000000,
+    "update_time": 1780000600,
+    "mapping": {
+      "r": {"id": "r", "message": null, "parent": null, "children": ["nu"], "create_time": 1780000000},
+      "nu": {
+        "id": "nu",
+        "message": {
+          "id": "m-nu",
+          "author": {"role": "user"},
+          "content": {"content_type": "text", "parts": ["Summarize the nested zip export format."]},
+          "create_time": 1780000060
+        },
+        "parent": "r",
+        "children": ["na"]
+      },
+      "na": {
+        "id": "na",
+        "message": {
+          "id": "m-na",
+          "author": {"role": "assistant"},
+          "content": {"content_type": "text", "parts": ["The export nests conversations.json inside per-part zips."]},
+          "create_time": 1780000600,
+          "metadata": {"model_slug": "gpt-5"}
+        },
+        "parent": "nu",
+        "children": []
+      }
+    },
+    "id": "conv-nested-1"
+  }
+]

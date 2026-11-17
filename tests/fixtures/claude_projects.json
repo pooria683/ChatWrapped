@@ -1,0 +1,4 @@
+[
+  {"uuid": "proj-1", "name": "Blog drafts", "prompts": ["Write an intro about local-first tools."]},
+  {"uuid": "proj-2", "name": "Trip research", "prompts": ["Compare train passes in Portugal."]}
+]
