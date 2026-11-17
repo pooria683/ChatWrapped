@@ -1,0 +1,19 @@
+[
+  {
+    "id": "gemini-conv-1",
+    "title": "Weekend hike",
+    "created_at": "2026-06-20T08:00:00Z",
+    "messages": [
+      {
+        "role": "user",
+        "parts": [{"text": "Best hike near Lisbon for a Saturday morning?"}],
+        "created_at": "2026-06-20T08:00:00Z"
+      },
+      {
+        "role": "model",
+        "parts": [{"text": "Sintra-Cascais Natural Park has great coastal trails."}],
+        "created_at": "2026-06-20T08:00:30Z"
+      }
+    ]
+  }
+]
